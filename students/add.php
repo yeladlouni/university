@@ -12,6 +12,10 @@
         if(!preg_match("/^[0-9]{10}$/", $mobile)) {
             $mobileError = "Le format du numéro de tél. est incorrect.";
         }
+
+        if($preg_match("/^[a-zA-Z0-9\.\-_]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/", $emailError)) {
+            $emailError = "Le format de l'email est incorrect.";
+        }
     }
 ?>
 
@@ -34,6 +38,7 @@
 <label for="address">Adresse</label>
 <input type="text" name="address"/><br>
 <label for="email">Email</label>
+<span class="error"><?php echo $emailError; ?></span><br>
 <input type="text" name="email"/><br>
 <label for="mobile">Tél</label>
 <input type="text" name="mobile"/>
