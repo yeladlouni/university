@@ -55,6 +55,8 @@
 <label for="mobile">Tél</label>
 <input type="text" name="mobile"/>
 <span class="error"><?php echo $mobileError; ?></span><br>
+<label for="picture">Photo</label>
+<input type="file" name="picture"/><br>
 <input type="submit" value="Envoyer"/>
 </form>   
 </div>
