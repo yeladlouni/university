@@ -1,0 +1,29 @@
+ul {
+    color: red;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.content .product .title {
+    color: gray;
+}
+
+#customers {
+    border-collapse: collapse;
+}
+
+#customers td, #customers th  {
+    border: 1px solid gray;
+}
+
+#customers th {
+    background-color: green;
+}
+
+#customers tr:nth-child(even) {
+    background-color: rgba(128,128,128,0.5)
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
