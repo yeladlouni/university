@@ -1,20 +1,32 @@
-<?php 
-    $nameError = $mobileError = "";
+<?php
+    include('student.php');
+
+    $nameError = $mobileError = $emailError = $birthDateError = "";
     
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $cne = $_POST['cne'];
         $name = $_POST['name'];
         $mobile = $_POST['mobile'];
+        $email = $_POST['email'];
+        $birthDate = $_POST['birth_date'];
+        $address = $_POST['address'];
 
-        if(!preg_match("/^[a-zA-Z ]+$/", $name)) {
-            $nameError = "Le nom saisi est incorrect.";
+        $student = new Student($cne, $name, $birthDate, $address, $email, $mobile);
+
+        if(!$student->check_name()) {
+            $nameError = "Le nom saisi est invalide";
         }
 
-        if(!preg_match("/^[0-9]{10}$/", $mobile)) {
-            $mobileError = "Le format du numéro de tél. est incorrect.";
+        if(!$student->check_birth_date()) {
+            $birthDateError = "L'étudiant doit avoir au moins 15ans et ne doit pas dépasser 30ans.";
         }
 
-        if($preg_match("/^[a-zA-Z0-9\.\-_]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/", $emailError)) {
-            $emailError = "Le format de l'email est incorrect.";
+        if(!$student->check_mobile()) {
+            $mobileError = "Le format du tél. saisi est incorrect.";
+        }
+
+        if(!$student->check_email()) {
+            $emailError = "Le format de l'email saisi est incorrect.";
         }
     }
 ?>
@@ -34,7 +46,7 @@
 <span class="error"><?php echo $nameError; ?></span><br>
 <input type="text" name="name"/><br>
 <label for="birth_date">Date de naissance</label>
-<input type="text" name="birth_date"/><br>
+<input type="text" name="birth_date"/><span class="error"><?php echo $birthDateError; ?></span><br>
 <label for="address">Adresse</label>
 <input type="text" name="address"/><br>
 <label for="email">Email</label>
