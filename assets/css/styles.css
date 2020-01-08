@@ -27,3 +27,11 @@ ul {
     color: red;
     font-weight: bold;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+tr td {
+    border: 1px solid black;
+}
