@@ -15,13 +15,27 @@
                    
                     $students = array();
 
-                    while(!feof($fstudents)) {
+                    // Lecture du fichier ligne par ligne en utilisant fgets
+                    /* while(!feof($fstudents)) {
                         $line = fgets($fstudents);
                         if(!$line == "") {
                             $list = explode(";", $line);
                             $student = new Student($list[0], $list[1], $list[2], $list[3], $list[4], $list[5]);
                             array_push($students, $student);
                         }                       
+                    }*/
+
+                    // Lecture du fichier entier en utilisant fread
+                    $content = fread($fstudents, filesize('../data/students.csv'));
+                    $lines = explode("\n", $content);
+                    for($i = 0; $i < count($lines); $i++) {
+                        $line = $lines[$i];
+                        if($line != "") {
+                            $list = explode(";", $line);
+                            $student = new Student($list[0], $list[1], $list[2], $list[3], $list[4], $list[5]);
+                            array_push($students, $student);
+                        }
+                        
                     }
 
                     fclose($fstudents);
