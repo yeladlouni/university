@@ -1,0 +1,36 @@
+Evaluation PHP
+Date: 09/01/2020
+
+1. Créer une table BD intitulée product afin de stocker
+ les informations des produits :
+ * serial_numner est le numéro de série du produit
+ * label est la désignation du produit
+ * expiration_date est la date d'expiration du produit
+ * category est la catégorie du produit
+
+Les attributs du produit doivent respecter 
+ les règles de gestion suivantes:
+ 
+ * le numéro de série doit obligatoirement
+ commencer avec une seule lettre et contenir
+ 6 chiffres
+* la date d'expiration doit être supérieure
+à la date du système
+* la catégorie doit être l'une des valeurs suivantes:
+ électoménager, informatique, bureau
+
+ * Ajouter la page qui permet l'ajout d'un produit
+* Ajouter une page pour la suppression d'un produit
+* Ajouter une page pour l'affichage des produits
+dans une table html
+
+* après la suppression ou l'ajout d'un produit, rediriger vers 
+la liste des produits
+
+Envoyer le lien vers githu de la repository ou
+le dossier code source compressé à l'email 
+suivant avant 17:00
+
+Yassine El Adlouni
+yeladlouni@gmail.com
++212600214274
