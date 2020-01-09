@@ -10,6 +10,7 @@
         $email = $_POST['email'];
         $birthDate = $_POST['birth_date'];
         $address = $_POST['address'];
+        $picture = $_POST['picture'];
 
         $student = new Student($cne, $name, $birthDate, $address, $email, $mobile);
 
@@ -27,6 +28,18 @@
 
         if(!$student->check_email()) {
             $emailError = "Le format de l'email saisi est incorrect.";
+        }
+
+        upload($picture);
+
+        function upload($file) {
+            // le repertoire de stockage des fichiers sur le serveur
+            $target_dir = "../data";
+            // le chemin du fichier à stocker
+            $target_file = $target_dir.basename($_FILES['picture']['name']);
+            $uploadOK = true;
+            // Récupération de l'extension de l'image
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         }
     }
 ?>
