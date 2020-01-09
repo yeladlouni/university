@@ -14,6 +14,21 @@
             <input type="password" name="password_confirm"/><br>
             <label for="email">Email</label>
             <input type="email" name="email"/><br>
+            <label for="country">Pays</label>
+            <select name="country" onchange="showCities(this.value)">
+                <option value="0">Sélectionner un pays</option>
+                <option value="1">Maroc</option>
+                <option value="2">France</option>
+            </select>
+            <div id="city">
+                
+            </div>
+            <!--<label for="city">Pays</label>
+            <select name="city">
+                <option value="0">Sélectionner un pays</option>
+                <option value="1">Maroc</option>
+                <option value="2">France</option>
+            </select>-->
             <input type="submit" value="S'inscrire"/>
         </form>
         <?php 
